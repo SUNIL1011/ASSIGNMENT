@@ -1,0 +1,117 @@
+1)CIRCLE QUESTION
+namespace myappaug12
+{
+    class CircleTest
+    {
+        public static void Main()
+        {
+            Circle c1 = new Circle();
+            c1.setradius(10);
+            Console.WriteLine(c1.getradius());
+            Console.WriteLine(c1.calcArea());
+            Console.WriteLine(c1.calcDiameter());
+
+
+        }
+    }
+
+    class Circle
+    {
+        double r;
+        double PI = 3.14;
+
+        public void setradius(double r)
+        {
+            this.r = r;
+        }
+        public double getradius()
+        {
+            return this.r;
+        }
+        public double calcDiameter()
+        {
+            return 2 * this.r;
+        }
+        public double calcArea()
+        {
+            return PI * this.r * this.r;
+        }
+    }
+    
+}
+
+
+
+2) BANK ACCOUNT QUESTION
+namespace myappaug12
+{
+    
+        class BankAccount
+        {
+            double balance;
+            public BankAccount()
+            {
+                this.balance = 500.0;
+            }
+            public BankAccount(double balance)
+            {
+                this.balance = balance;
+            }
+            public double getBalance()
+            {
+                return this.balance;
+            }
+        }
+        class BankBal
+        {
+            public static void Main()
+            {
+                BankAccount b1 = new BankAccount(1000);
+                Console.WriteLine(b1.getBalance());
+            }
+        }
+    }
+
+
+4 HRA
+namespace myappaug12
+{
+    class EmployeeSalary
+    {
+        private int empid { get; set; }
+        string name { get; set; }
+        private double basicSal { get; set; }
+        private double HRAl { get; set; }
+        private double TravelAl { get; set; }
+        double taxDeduction { get; set; }
+
+        public EmployeeSalary(int empid, string name, double basicSal, double HRAl, double TravelAl, double taxDeduction)
+        {
+            this.empid = empid;
+            this.name = name;
+            this.basicSal = basicSal;
+            this.HRAl = HRAl;
+            this.TravelAl = TravelAl;
+            this.taxDeduction = taxDeduction;
+        }
+        public void getDetails()
+        {
+            Console.WriteLine($"Employee Id is {this.empid}");
+            Console.WriteLine($"Employee Basic Salary is {this.basicSal}");
+            Console.WriteLine($"Employee HR Allowance Id is {this.HRAl}");
+            Console.WriteLine($"Employee Travel Allowance is {this.TravelAl}");
+            Console.WriteLine($"Employee Tax Deduction is {this.taxDeduction} %");
+        }
+    }
+    class EmployeeDetails
+    {
+        public static void Main()
+        {
+            EmployeeSalary e1 = new EmployeeSalary(12345, "Sunil", 2000.0, 400, 200, 5);
+            e1.getDetails();
+            EmployeeSalary e2 = new EmployeeSalary(12345, "Schumaker", 2500.0, 4050, 200, 5);
+            e2.getDetails();
+        }
+    }
+}
+
