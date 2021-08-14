@@ -1,0 +1,291 @@
+1)STRUCTUES QUESTION
+namespace myappaug12
+{
+    struct user
+    {
+        public string name { get; set; }
+        public string sex { get; set; }
+        public float height { get; set; }
+        public float weight { get; set; }
+
+        public void getValues(string nam, string sex, float height, float weight)
+        {
+            name = nam;
+            this.sex = sex;
+            this.height = height;
+            this.weight = weight;
+        }
+        public string display()
+        {
+            return $"Name:{name} \nSex:{sex}\nHeight:{height} cm\nWeight:{weight} kgs";
+
+        }
+    }
+    class User
+    {
+        public static void Main()
+        {
+            user u = new user();
+            u.getValues("SUNIL", "Male", 190, 75);
+            Console.WriteLine(u.display());
+        }
+
+    }
+
+}
+
+
+
+
+2) SALARY COMAPRISON
+namespace myappaug12
+{
+    class SalCompareTest
+    {
+        public static void Main()
+        {
+            SalCompare e = new SalCompare();
+            e.get(50000, 1500);
+            Console.WriteLine(e.displaySal());
+        }
+
+
+    }
+        class SalCompare
+        {
+
+            int rollno { get; set; }
+            string name { get; set; }
+            string address { get; set; }
+            int pincode { get; set; }
+            int phoneno { get; set; }
+            float grossSal;
+            float pf;
+            float netSal;
+
+            public void get(float gross, float PF)
+            {
+                this.grossSal = gross;
+                this.pf = PF;
+            }
+
+            public string displaySal()
+            {
+                this.netSal = this.grossSal - this.pf;
+                if (this.netSal > 10000)
+                {
+                    return $"The net salaray is {this.netSal}\n" +
+                        $"Grade A";
+                }
+                else if (this.netSal > 5000)
+                {
+                    return $"The net salaray is {this.netSal}\n" +
+                        $"Grade B";
+                }
+                else
+                    return $"The net salaray is {this.netSal}\n" +
+                        $"Grade C";
+            }
+
+
+        }
+    }
+
+
+3)MARKS AVERAGE
+{
+    class StudentDriver
+    {
+        public static void Main()
+        {
+
+            SciStudent s1 = new SciStudent{Rollno = 11, Name = "Virat", Phyics = 80,Math=85,Chem=90};
+            ComStudent c1 = new ComStudent { Rollno = 20, Name = "Vinay", Economics = 81, Banking = 88, Accounts = 99 };
+            Console.WriteLine(s1.GetAvg());
+            Console.WriteLine(c1.GetAvg());
+        }
+    }
+    class Student
+
+    {
+        public int Rollno { get; set; }
+        public string Name { get; set; }
+
+    }
+
+    class SciStudent : Student
+
+    {
+        public int Phyics { get; set; }
+        public int Math { get; set; }
+        public int Chem { get; set; }
+
+        public double GetAvg()
+        {
+            return (Phyics + Math + Chem)/3;
+        }
+
+
+    }
+
+    class ComStudent : Student
+
+    {
+        public int Economics { get; set; }
+        public int Banking { get; set; }
+        public int Accounts { get; set; }
+
+        public double GetAvg()
+        {
+            return (Economics + Banking + Accounts)/3;
+        }
+
+
+    }
+
+
+}
+
+4)CAR INTERFACE
+namespace myappaug12
+{
+    public interface CarInterface
+    {
+        void carCompany(string company);
+        void carType(string type);
+        void modelName(string model);
+        void topSpeed(int speed);
+    }
+
+    public class Car : CarInterface
+    {
+        public void carCompany(string company)
+        {
+            Console.WriteLine($"The Manefacturer of the car is {company}");
+        }
+
+        public void carType(string type)
+        {
+            Console.WriteLine($"The car is an MUV?SUV?SEDAN? {type}");
+        }
+
+        public void modelName(string model)
+        {
+            Console.WriteLine($"The car IS {model}"); 
+        }
+
+        public void topSpeed(int speed)
+        {
+            Console.WriteLine($"The car's top speed is  {speed}");
+        }
+
+        
+    }
+
+    public class TestCarInterface
+    {
+        public static void Main()
+        {
+            Car c1 = new Car();
+            c1.carCompany("Mahindra");
+            c1.carType("Fullsize AWD SUV");
+            c1.modelName("XUV 700");
+            c1.topSpeed(200);
+        }
+    }
+}
+
+    
+4)CYLINDER
+namespace myappaug12
+{
+    class Dimension
+    {
+        public int x { get; set; }
+        public int y { get; set; }
+
+        
+
+        public Dimension(int x_cor,int y_cor)
+        {
+            this.x = x_cor;
+            this.y = y_cor;
+        }
+
+        public virtual double area()
+        {
+            return 0d;
+        }
+    }
+
+    class Circle : Dimension
+    {
+        public Circle(int x_co,int y_co) : base(x_co, y_co)
+        {
+           
+        }
+
+        public override double area()
+        {
+            return Math.PI * this.x * this.x;
+        }
+        public string Display()
+        {
+            return $"CSA of Circle is {area()}";
+        }
+    }
+
+    class Cylinder : Dimension
+    {
+        public Cylinder(int x_co,int y_co) : base(x_co, y_co)
+        {
+
+        }
+
+        public override double area()
+        {
+            return (2 * Math.PI * this.x * this.x * this.y);
+        }
+
+        public string Display()
+        {
+            return $"CSA of cylinder is {area()}";
+        }
+    }
+
+    class Sphere : Dimension
+    {
+        public Sphere(int x_co,int y_co) : base(x_co, y_co)
+        {
+
+        }
+
+        public override double area()
+        {
+            return 4 * Math.PI * this.x * this.x;
+        }
+
+        public string Display()
+        {
+            return $"CSA of Sphere is {area()}";
+        }
+    }
+
+    class TestDimension
+    {
+        public static void Main()
+        {
+            Circle c = new Circle(15,15);
+            Console.WriteLine(c.Display());
+            Cylinder cy = new Cylinder(15, 15);
+            Console.WriteLine(cy.Display());
+            Sphere s = new Sphere(15, 15);
+            Console.WriteLine(s.Display());
+
+        }
+    }
+
+}
+
+
+
