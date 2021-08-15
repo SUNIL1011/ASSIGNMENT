@@ -1,0 +1,74 @@
+1) public static void Main()
+        {
+            Stack<int> s = new Stack<int>();
+            Console.WriteLine("Enter the total number of elements");
+            int N = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Enter {N} elements");
+            foreach (int i in Enumerable.Range(1, N)) 
+            {
+                s.Push(int.Parse(Console.ReadLine()));
+            }
+            Console.WriteLine("The values entered in reverse order");
+            for(int i = 0;i < N;i++)
+            {
+                Console.WriteLine(s.Pop());
+            }
+        }
+2)Finding repettions
+namespace myappaug12
+{
+    class ts
+    {
+        static void Main(string[] args)
+        {
+            int[] array = {  2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 1 };
+            var dict = new Dictionary<int, int>();
+
+            foreach (var i in array)
+            {
+                // When the key is not found, "count" will be initialized to 0
+                dict.TryGetValue(i, out int count);
+                dict[i] = count + 1;
+            }
+
+            foreach (var pair in dict)
+                Console.WriteLine($"{pair.Key} -> {pair.Value} times.");
+
+        }
+    }
+}
+
+3)Avg
+public static void Main()
+        {
+            List<int> A = new List<int>();
+            Console.WriteLine("Enter the positive numbers");
+            while (true)
+            {
+                string str = Console.ReadLine();
+                if (str == string.Empty)
+                    break;
+                else
+                {
+                    int num = int.Parse(str);
+                    if (num > 0)
+                    {
+                        A.Add(num);
+                    }
+                    else
+                    {
+                        Console.WriteLine("You have entered a non positive number." +
+                            "Hence, not accepted");
+                    }
+                }
+            }
+            int i = 0;
+            int sum = 0;
+            foreach (int a in A)
+            {
+                sum = sum + a;
+                i++;
+            }
+            float avg = (sum) / i;
+            Console.WriteLine($"Sum={sum}\n" +
+                $"Average={avg}")
